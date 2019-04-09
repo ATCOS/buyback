@@ -52,9 +52,24 @@ function LoadTypes(category) {
                         return;
                     }
                     ById[id][3] = obj.buy.max;
-                    if(!obj.buy.max) {
-                        $("#add-menu [data-id='"+ id +"']").addClass('ui-state-error');
-                    }
+					var tr = $("#add-menu [data-id='" + id + "']");
+					if(tr.length !== 0) {
+						if(!obj.buy.max) {
+							tr.addClass('ui-state-error');
+						} else {
+							tr.removeClass('ui-state-error');
+						}
+					}
+					tr = $("#tally [data-id='" + id + "']");
+					if(tr.length !== 0) {
+						if(!obj.buy.max) {
+							tr.addClass('ui-state-error');
+						} else {
+							tr.removeClass('ui-state-error');
+						}
+						tr.children('td')[1].innerText = FormatISK(obj.buy.max * CurrentRate);
+						tr.find('input').blur();
+					}
                 }
                 accept(TypeIds);
                 accept = reject = function(){};
