@@ -52,6 +52,9 @@ function LoadTypes(category) {
                         return;
                     }
                     ById[id][3] = obj.buy.max;
+                    if(!obj.buy.max) {
+                        $("#add-menu [data-id='"+ id +"']").addClass('ui-state-error');
+                    }
                 }
                 accept(TypeIds);
                 accept = reject = function(){};
@@ -85,12 +88,16 @@ function Total(event) {
 
 function AddItem(item) {
     var input;
-    $('#tally tbody').append(crel('tr', {'data-id':item[1]}, [
+    var tr = crel('tr', {'data-id':item[1]}, [
         crel('td', item[0]),
         crel('td', FormatISK(item[3] * CurrentRate)),
         crel('td', $(input = crel('input', {type:'text',pattern:'^[0-9]*$'})).blur(Total).keyup(EnterKey)[0]),
         crel('td', FormatISK(0))
-    ]));
+    ]);
+    if(!item[3]) {
+        $(tr).addClass('ui-state-error');
+    }
+    $('#tally tbody').append(tr);
     $(input).focus();
 }
 function ClickAdd(event) {
