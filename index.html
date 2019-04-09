@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="base.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/dot-luv/jquery-ui.css" />
+        <script src="crel.min.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="TypeIds.js" type="text/javascript"></script>
+        <script src="base.js" type="text/javascript"></script>
+        <title>Atlas Cosmographicae Ore Buyback</title>
+    </head>
+    <body class="ui-widget">
+        <div id="main">
+            <div id="info">
+                <img src="buyback-banner.png" style="width: 100%;">
+                <h1>HOW IT WORKS</h1>
+                <p>Welcome to the Atlas Cosmographicae Ore Buyback Program! Here you can sell ores, gas, ice, and planetary products to the corp. We pay you for your goods (tip: compress first) and then place sell orders in a trade hub. The profits go into the corp to help pay for things like ships for fleet operations! <strong>The standard purchase rate is <span id="current-rate"></span>% Jita Buy Price.</strong></p>
+                <h2>How to sell your stuff to the corp:</h2>
+                <ol id="steps">
+                    <li>Your ore/items/ships should be located at any accessible station/structure between HQ in <strong>Sortet VI - Moon 5 - DED Logistic Support</strong> and <strong>Ellmay - SP Refinery - T2 Ore Refine (Corwan Academy)</strong>.</li>
+                    <li>Select everything you want to sell > Right click > Create Contract.</li>
+                    <li>Select 'Item Exchange' and below that select 'My Corporation' > Press Next > Check your items are selected > Press Next again.</li>
+                    <li>Click the <strong>+</strong> button and find and click each item type you want to sell then write in the quantities of the items you're selling.</li>
+                    <li>The 'Total' is displayed in the center of the calculator page. Write the amount shown in the 'I will recieve' field of the contract setup window in-game</li>
+                    <li>Send a discord or Corp message to <strong>Erroneous II</strong> to clear the contract quickly since EVE doesn't notify on corporation contracts.</li>
+                </ol>
+            </div>
+            <table id="tally">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Unit Value</th>
+                        <th>Quantity</th>
+                        <th>ISK</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Add Item</td>
+                        <td><input type="text" id="search-items"></td>
+                        <td><button id="add-item">Add Item</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td id="total"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div id="dialog-message"></div>
+        <span style="display:table"><ul id="add-menu"></ul></span>
+    </body>
+</html>
